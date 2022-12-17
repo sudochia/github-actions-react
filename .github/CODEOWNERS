@@ -1,4 +1,4 @@
 * @sudochia
 *.js @sudochia
-*.yml @sudochia
+*.yml @rainboiboi
 /public/ @sudochia
