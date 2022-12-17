@@ -1,13 +1,17 @@
 # Github Actions
 
 ### Run test without watching files
+
 ```
 CI=true npm run test
 ```
+
 ### Test with coverage report
+
 ```
 `CI=true npm run test -- --coverage`
 ```
+
 ### Build app into build folder
 
 ```
@@ -22,6 +26,7 @@ surge --domain scandalous-quilt.surge.sh
 ```
 
 ### prettier
+
 ```
 npm install --save-dev --save-exact prettier
 Add .prettierrc and .prettierignore
@@ -68,6 +73,7 @@ npx prettier --write "**/\*.js"
 - Release created -> send slack message
 
 ### Branch protection rule
+
 - Require a pull request before merging
   - Require approvals
   - Dismiss stale PR
@@ -77,4 +83,5 @@ npx prettier --write "**/\*.js"
 - Do not allow bypassing the above settings
 
 ### Others
-- PR will request reviewers from CODEOWNERS 
+
+- PR will request reviewers from CODEOWNERS
