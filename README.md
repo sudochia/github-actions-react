@@ -67,6 +67,14 @@ npx prettier --write "**/\*.js"
 - Issue created -> send slack message
 - Release created -> send slack message
 
+### Branch protection rule
+- Require a pull request before merging
+  - Require approvals
+  - Dismiss stale PR
+  - Require review from Code Owners
+- Require status checks to pass before merging
+  - Require branches to be up to date before merging
+- Do not allow bypassing the above settings
+
 ### Others
 - PR will request reviewers from CODEOWNERS 
-- 
