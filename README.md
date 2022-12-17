@@ -1,28 +1,33 @@
 # Github Actions
 
 ### Run test without watching files
-
+```
 CI=true npm run test
-
+```
 ### Test with coverage report
-
-CI=true npm run test -- --coverage
-
+```
+`CI=true npm run test -- --coverage`
+```
 ### Build app into build folder
 
+```
 npm run build
+```
 
 ### Surge - static web publishing
 
+```
 npm install --global surge
 surge --domain scandalous-quilt.surge.sh
+```
 
 ### prettier
-
+```
 npm install --save-dev --save-exact prettier
 Add .prettierrc and .prettierignore
 npx prettier --check "**/\*.js"
 npx prettier --write "**/\*.js"
+```
 
 ## Workflow
 
