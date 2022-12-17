@@ -1,0 +1,4 @@
+* @sudochia
+*.js @sudochia
+*.yml @sudochia
+/public/ @sudochia

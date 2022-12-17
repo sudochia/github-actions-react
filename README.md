@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Github Actions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Run test without watching files
 
-## Available Scripts
+CI=true npm run test
 
-In the project directory, you can run:
+### Test with coverage report
 
-### `npm start`
+CI=true npm run test -- --coverage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Build app into build folder
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+npm run build
 
-### `npm test`
+### Surge - static web publishing
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm install --global surge
+surge --domain scandalous-quilt.surge.sh
 
-### `npm run build`
+### prettier
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm install --save-dev --save-exact prettier
+Add .prettierrc and .prettierignore
+npx prettier --check "**/\*.js"
+npx prettier --write "**/\*.js"
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Workflow
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Pull Request
 
-### `npm run eject`
+- Install dependencies
+- Check code formatting
+- Run automated tests
+- Upload code coverage as an artifact
+- Cache dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Merge to Develop branch
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Install dependencies
+- Check code formatting
+- Run automated tests
+- Upload code coverage as an artifact
+- Build project
+- Upload build as an artifact
+- Deploy to staging server
+- Cache dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Merge Develop into Master
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Install dependencies
+- Check code formatting
+- Run automated tests
+- Upload code coverage as an artifact
+- Build project
+- Create a release
+- Deploy to prod server
+- Upload coverage to codecov
 
-## Learn More
+### Actions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Job failure -> create issue
+- Issue created -> send slack message
+- Release created -> send slack message
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Others
+- PR will request reviewers from CODEOWNERS 
